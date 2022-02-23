@@ -14,7 +14,9 @@ export default function Song() {
       </Head>
       <div className={styles.songContent}>
       <h1>Song</h1>
-      <SongImage />
+        <div >  
+         <SongImage style={{ right:0 }} />
+        </div>
       </div>
     </div>
   )
