@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Song.module.css'
+import SongImage from '../components/SongImage'
 
 export default function Song() {
   return (
@@ -13,6 +14,7 @@ export default function Song() {
       </Head>
       <div className={styles.songContent}>
       <h1>Song</h1>
+      <SongImage />
       </div>
     </div>
   )
