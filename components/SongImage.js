@@ -4,13 +4,17 @@ import SongOne from '../public/images/song-1.jpg'
 
 const SongImage = () =>{
     return(
-       <Image
+        <div  >
+       <Image className={styles.order}
         src={SongOne} 
         alt="Mavi Gelir Chayin Sesi"
         layout="fill"
         objectFit="contain"
         objectPosition="right"
+        
+    
        />
+       </div>
     
     );
 }
