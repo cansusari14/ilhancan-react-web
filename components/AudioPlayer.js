@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-
-
+import { BsPlayFill } from "react-icons/bs";
+import { BsFillPauseFill } from "react-icons/bs";
 
 function convert(value) {
-  return Math.floor(value / 60) + ":" + (value % 60 ? value % 60 : '00')
+  return Math.floor(value / 60) + ":" + (value % 60 ? value % 60 : "00");
 }
-
-
 
 const AudioPlayer = ({ src }) => {
   const [trackProgress, setTrackProgress] = useState(0);
@@ -27,17 +25,15 @@ const AudioPlayer = ({ src }) => {
     setIsPlaying(false);
   };
 
-
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
-      startTimer()
+      startTimer();
     } else {
       clearInterval(intervalRef.current);
       audioRef.current.pause();
     }
   }, [isPlaying]);
-
 
   useEffect(() => {
     // Pause and clean up on unmount
@@ -46,7 +42,6 @@ const AudioPlayer = ({ src }) => {
       clearInterval(intervalRef.current);
     };
   }, []);
-
 
   const startTimer = () => {
     intervalRef.current = setInterval(() => {
@@ -58,15 +53,23 @@ const AudioPlayer = ({ src }) => {
     }, [1000]);
   };
 
-  ;
-
-
   return (
     <div className="audio-player">
       <div className="track-info">
-      {  convert(Math.round(trackProgress))}/{convert(Math.round(audioRef.current?.duration))}
-        <button onClick={start}>START</button>
-        <button onClick={stop}>STOP</button>
+        {convert(Math.round(trackProgress))}/
+        {convert(Math.round(audioRef.current?.duration))}
+        {isPlaying ? (
+          <button onClick={stop}>
+          
+            <BsFillPauseFill />
+          </button>
+        ) : (
+          <button onClick={start}>
+            
+            <BsPlayFill />
+          </button>
+        )}
+
       </div>
     </div>
   );
